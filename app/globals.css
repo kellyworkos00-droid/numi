@@ -380,6 +380,20 @@ button:hover {
 
 .product-card {
   overflow: hidden;
+  border-radius: 1.3rem;
+  border: 1.5px solid var(--nk-gold);
+  background: linear-gradient(120deg, rgba(255,215,0,0.06) 0%, rgba(64,191,63,0.07) 100%);
+  box-shadow: 0 4px 18px 0 rgba(255,215,0,0.08), 0 1.5px 8px 0 rgba(64,191,63,0.06);
+  transition: box-shadow 0.18s, border-color 0.18s, transform 0.18s, background 0.18s;
+  position: relative;
+}
+
+.product-card:hover {
+  box-shadow: 0 16px 36px 0 rgba(255,215,0,0.13), 0 4px 18px 0 rgba(64,191,63,0.10);
+  border-color: var(--nk-dark-gold);
+  background: linear-gradient(120deg, rgba(255,215,0,0.13) 0%, rgba(64,191,63,0.13) 100%);
+  transform: translateY(-6px) scale(1.025);
+  z-index: 2;
 }
 
 .product-media {
