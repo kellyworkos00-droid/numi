@@ -1,4 +1,30 @@
+
 import Image from "next/image";
+import { useState } from "react";
+
+const featuredProducts = [
+  {
+    name: "Numi Sprint X",
+    price: "KES 18,900",
+    tag: "Best Seller",
+    image: "/numi-logo.jpeg",
+    desc: "Elite running shoe for speed and comfort.",
+  },
+  {
+    name: "Numi Street Pro",
+    price: "KES 21,900",
+    tag: "New",
+    image: "/numi-logo.jpeg",
+    desc: "Urban style meets athletic performance.",
+  },
+  {
+    name: "Numi Glide Run",
+    price: "KES 16,900",
+    tag: "Lightweight",
+    image: "/numi-logo.jpeg",
+    desc: "Feather-light for daily miles.",
+  },
+];
 
 const products = [
   { name: "Numi Sprint X", price: "KES 18,900", tag: "Best Seller" },
@@ -8,6 +34,10 @@ const products = [
 ];
 
 export default function HomePage() {
+  const [carouselIdx, setCarouselIdx] = useState(0);
+  const nextProduct = () => setCarouselIdx((i) => (i + 1) % featuredProducts.length);
+  const prevProduct = () => setCarouselIdx((i) => (i - 1 + featuredProducts.length) % featuredProducts.length);
+  const featured = featuredProducts[carouselIdx];
   return (
     <>
       <header className="floating-header" aria-label="Primary header">
@@ -69,20 +99,25 @@ export default function HomePage() {
             <div className="logo-beam" aria-hidden />
             <div className="brand-logo-wrap">
               <Image
-                src="/numi-logo.jpeg"
-                alt="Numi Kicks featured product visual"
+                src={featured.image}
+                alt={featured.name + " featured product visual"}
                 width={700}
                 height={700}
                 className="brand-logo"
                 priority
               />
             </div>
-            <p className="hero-caption">New season drop now live</p>
-             <div className="hero-price-card">
-               <p>Featured Pair</p>
-               <strong>Numi Velocity One</strong>
-               <span>KES 23,900</span>
-             </div>
+            <p className="hero-caption">{featured.desc}</p>
+            <div className="hero-price-card">
+              <p>Featured Pair</p>
+              <strong>{featured.name}</strong>
+              <span>{featured.price}</span>
+              <span className="product-tag" style={{marginLeft:8}}>{featured.tag}</span>
+              <div className="carousel-controls">
+                <button aria-label="Previous product" onClick={prevProduct}>&lt;</button>
+                <button aria-label="Next product" onClick={nextProduct}>&gt;</button>
+              </div>
+            </div>
           </div>
         </section>
 
