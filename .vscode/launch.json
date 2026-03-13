@@ -2,14 +2,10 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "node",
+      "type": "node-terminal",
       "request": "launch",
-      "name": "Debug numi-kicks",
-      "program": "${workspaceFolder}/src/index.ts",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
-      "console": "integratedTerminal",
-      "skipFiles": ["<node_internals>/**"]
+      "name": "Next.js: dev server",
+      "command": "npm run dev"
     }
   ]
 }

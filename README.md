@@ -1,6 +1,6 @@
 # numi-kicks
 
-A minimal Node.js + TypeScript starter project.
+Next.js app for Numi Kicks with a logo-inspired visual theme.
 
 ## Requirements
 
@@ -8,15 +8,13 @@ A minimal Node.js + TypeScript starter project.
 
 ## Scripts
 
-- `npm run dev`: Run in watch mode with TS execution
-- `npm run build`: Compile TypeScript to `dist/`
-- `npm start`: Run compiled output
-- `npm test`: Execute tests via Vitest
+- `npm run dev`: Start local Next.js dev server
+- `npm run build`: Create production build
+- `npm start`: Run production server
 
 ## Quick Start
 
 ```bash
 npm install
-npm run build
-npm start
+npm run dev
 ```
