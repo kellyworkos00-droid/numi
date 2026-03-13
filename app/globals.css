@@ -32,9 +32,61 @@ body {
 .page-shell {
   width: min(1200px, 94vw);
   margin: 0 auto;
-  padding: clamp(1.3rem, 3vw, 2.8rem) 0 3.2rem;
+  padding: clamp(5.3rem, 7vw, 6.1rem) 0 7.5rem;
   display: grid;
   gap: 1.15rem;
+}
+
+.floating-header {
+  position: fixed;
+  top: 0.9rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 40;
+  width: min(720px, calc(100vw - 1.4rem));
+}
+
+.floating-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.68rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(244, 247, 246, 0.16);
+  background: linear-gradient(140deg, rgba(17, 24, 22, 0.62), rgba(8, 11, 11, 0.52));
+  backdrop-filter: blur(15px) saturate(118%);
+  -webkit-backdrop-filter: blur(15px) saturate(118%);
+  box-shadow:
+    0 16px 32px rgba(0, 0, 0, 0.42),
+    inset 0 0 0 1px rgba(216, 255, 50, 0.14);
+  animation: drop-in 620ms ease both;
+}
+
+.header-brand {
+  margin: 0;
+  font-family: var(--font-heading), sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 1.02rem;
+}
+
+.header-brand span {
+  color: var(--nk-lime);
+}
+
+.header-action {
+  border: 1px solid rgba(216, 255, 50, 0.45);
+  background: rgba(157, 255, 31, 0.14);
+  color: var(--nk-white);
+  padding: 0.48rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+}
+
+.header-action:hover {
+  border-color: rgba(216, 255, 50, 0.8);
+  box-shadow: 0 0 0 1px rgba(216, 255, 50, 0.34) inset;
 }
 
 .panel {
@@ -58,6 +110,7 @@ body {
   padding: 0.8rem;
   position: relative;
   isolation: isolate;
+  animation: pulse-glow 4.8s ease-in-out infinite;
 }
 
 .logo-beam {
@@ -240,6 +293,49 @@ button:hover {
   color: rgba(244, 247, 246, 0.9);
 }
 
+.floating-bottom-nav {
+  position: fixed;
+  left: 50%;
+  bottom: 0.88rem;
+  transform: translateX(-50%);
+  z-index: 42;
+  width: min(560px, calc(100vw - 1.1rem));
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.42rem;
+  padding: 0.5rem;
+  border-radius: 1.2rem;
+  border: 1px solid rgba(216, 255, 50, 0.24);
+  background: linear-gradient(140deg, rgba(9, 13, 12, 0.76), rgba(6, 9, 9, 0.67));
+  backdrop-filter: blur(16px) saturate(120%);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.5),
+    inset 0 0 0 1px rgba(244, 247, 246, 0.06);
+  animation: rise-in 640ms ease both;
+}
+
+.nav-pill {
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.02);
+  color: rgba(244, 247, 246, 0.88);
+  border-radius: 0.9rem;
+  padding: 0.62rem 0.42rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.nav-pill.active {
+  color: #081104;
+  background: linear-gradient(150deg, var(--nk-lime) 0%, var(--nk-green) 100%);
+  box-shadow: 0 8px 18px rgba(157, 255, 31, 0.38);
+}
+
+.nav-pill:not(.active):hover {
+  border-color: rgba(216, 255, 50, 0.5);
+  transform: translateY(-1px);
+}
+
 .reveal-up {
   animation: reveal 650ms ease-out both;
 }
@@ -274,7 +370,60 @@ button:hover {
   }
 }
 
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: inset 0 0 0 1px rgba(244, 247, 246, 0.05);
+  }
+  50% {
+    box-shadow:
+      inset 0 0 0 1px rgba(244, 247, 246, 0.08),
+      0 0 24px rgba(157, 255, 31, 0.11);
+  }
+}
+
+@keyframes drop-in {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 860px) {
+  .floating-header {
+    width: calc(100vw - 1rem);
+    top: 0.5rem;
+  }
+
+  .floating-header-inner {
+    border-radius: 1rem;
+    padding: 0.6rem 0.65rem;
+  }
+
+  .header-brand {
+    font-size: 0.9rem;
+  }
+
+  .header-action {
+    padding: 0.45rem 0.68rem;
+    font-size: 0.69rem;
+  }
+
   .hero-grid {
     grid-template-columns: 1fr;
   }
@@ -283,11 +432,33 @@ button:hover {
     min-height: 260px;
   }
 
+  .hero-art {
+    animation: pulse-glow 3.8s ease-in-out infinite;
+  }
+
   .feature-grid {
     grid-template-columns: 1fr;
   }
 
   .stat-row {
     grid-template-columns: 1fr;
+  }
+
+  .floating-bottom-nav {
+    width: calc(100vw - 0.8rem);
+    border-radius: 1rem;
+    gap: 0.35rem;
+    padding: 0.45rem;
+  }
+
+  .nav-pill {
+    font-size: 0.74rem;
+    padding: 0.58rem 0.38rem;
+  }
+}
+
+@media (min-width: 861px) {
+  .floating-bottom-nav {
+    width: min(470px, calc(100vw - 2rem));
   }
 }
