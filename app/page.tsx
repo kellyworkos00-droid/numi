@@ -1,10 +1,19 @@
+import Image from "next/image";
+
 export default function HomePage() {
   return (
     <main className="page-shell">
       <section className="hero-card">
         <div className="brand-row">
-          <div className="brand-mark" aria-hidden>
-            <span>N</span>
+          <div className="brand-logo-wrap">
+            <Image
+              src="/numi-logo.jpeg"
+              alt="Numi Kicks logo"
+              width={220}
+              height={220}
+              className="brand-logo"
+              priority
+            />
           </div>
           <div>
             <p className="eyebrow">Built To Move</p>
