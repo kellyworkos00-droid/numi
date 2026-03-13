@@ -1,10 +1,10 @@
 import Image from "next/image";
 
 const products = [
-  { name: "Numi Sprint X", price: "$129", tag: "Best Seller" },
-  { name: "Numi Street Pro", price: "$149", tag: "New" },
-  { name: "Numi Glide Run", price: "$119", tag: "Lightweight" },
-  { name: "Numi Court Flex", price: "$139", tag: "Limited" },
+  { name: "Numi Sprint X", price: "KES 18,900", tag: "Best Seller" },
+  { name: "Numi Street Pro", price: "KES 21,900", tag: "New" },
+  { name: "Numi Glide Run", price: "KES 16,900", tag: "Lightweight" },
+  { name: "Numi Court Flex", price: "KES 19,900", tag: "Limited" },
 ];
 
 export default function HomePage() {
@@ -14,6 +14,7 @@ export default function HomePage() {
         <div className="floating-header-inner">
           <p className="header-brand" aria-label="Numi Kicks brand">
             Numi <span>Kicks</span>
+            <span className="kenya-flag" title="Kenya" aria-label="Kenyan flag">🇰🇪</span>
           </p>
 
           <nav className="header-links" aria-label="Main navigation">
@@ -31,14 +32,12 @@ export default function HomePage() {
       <main className="page-shell">
         <section className="hero-grid" id="shop">
           <div className="hero-copy panel reveal-up">
-            <p className="eyebrow">Performance Footwear</p>
+            <p className="eyebrow">Kenya's Performance Footwear</p>
             <h1>
-              Sell Fast With <span>Numi Kicks</span>
+              Step Up Kenya With <span>Numi Kicks</span>
             </h1>
             <p className="lead-copy">
-              Premium sneakers built for running, gym, and daily streetwear.
-              Launch new drops, highlight best sellers, and drive conversions on
-              mobile and desktop.
+              Premium sneakers for Nairobi streets, running, and daily style. Fast local delivery, M-Pesa checkout, and new drops every week.
             </p>
 
             <div className="cta-row">
@@ -53,15 +52,15 @@ export default function HomePage() {
             <div className="stat-row" aria-label="Brand stats">
               <article>
                 <strong>Free</strong>
-                <span>Shipping 2+ pairs</span>
+                <span>Nairobi delivery</span>
               </article>
               <article>
                 <strong>30d</strong>
-                <span>Easy returns</span>
+                <span>Pay on delivery</span>
               </article>
               <article>
                 <strong>4.9</strong>
-                <span>Verified rating</span>
+                <span>Trusted by Kenyans</span>
               </article>
             </div>
           </div>
@@ -79,20 +78,19 @@ export default function HomePage() {
               />
             </div>
             <p className="hero-caption">New season drop now live</p>
-            <div className="hero-price-card">
-              <p>Featured Pair</p>
-              <strong>Numi Velocity One</strong>
-              <span>$159</span>
-            </div>
+             <div className="hero-price-card">
+               <p>Featured Pair</p>
+               <strong>Numi Velocity One</strong>
+               <span>KES 23,900</span>
+             </div>
           </div>
         </section>
 
-        <section className="ticker" aria-label="Store highlights ticker">
-          <p>
-            FREE SHIPPING • EASY RETURNS • NEW DROP EVERY FRIDAY • NUMI KICKS •
-            FREE SHIPPING • EASY RETURNS • NEW DROP EVERY FRIDAY •
-          </p>
-        </section>
+         <section className="ticker" aria-label="Store highlights ticker">
+           <p>
+             FREE NAIROBI DELIVERY • M-PESA ACCEPTED • NEW DROP EVERY FRIDAY • NUMI KICKS • KES PRICING •
+           </p>
+         </section>
 
         <section className="category-strip" aria-label="Shop categories">
           <article className="panel reveal-up">
@@ -159,16 +157,16 @@ export default function HomePage() {
 
       <nav className="floating-bottom-nav" aria-label="Mobile quick navigation">
         <button type="button" className="nav-pill active" aria-label="Home">
-          Home
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 10.5L12 4L21 10.5V20A1.5 1.5 0 0 1 19.5 21.5H4.5A1.5 1.5 0 0 1 3 20V10.5Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d="M9 21.5V14.5H15V21.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
         </button>
         <button type="button" className="nav-pill" aria-label="Shop">
-          Shop
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 7V6A6 6 0 0 1 18 6V7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/><rect x="3" y="7" width="18" height="14" rx="2" stroke="currentColor" strokeWidth="1.5"/><path d="M16 11V17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/><path d="M8 11V17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
         </button>
         <button type="button" className="nav-pill" aria-label="Cart">
-          Cart
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="8.5" cy="20.5" r="1.5" stroke="currentColor" strokeWidth="1.5"/><circle cx="17.5" cy="20.5" r="1.5" stroke="currentColor" strokeWidth="1.5"/><path d="M2 3H4.5L6.5 16.5H19.5L21.5 7.5H6.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
         </button>
         <button type="button" className="nav-pill" aria-label="Profile">
-          Profile
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="1.5"/><path d="M4 20C4 16.6863 7.58172 14 12 14C16.4183 14 20 16.6863 20 20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
         </button>
       </nav>
     </>
